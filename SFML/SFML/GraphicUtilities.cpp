@@ -8,4 +8,12 @@ void GraphicUtilities::InitializeSprite(sf::Sprite & spriteToInitialize, sf::Tex
 		spriteToInitialize.setTexture(textureToInitialize);
 	else
 		std::cerr << std::endl << imageAddress << " wasn't loaded correctly, please check address. ";
+	
 }
+
+void GraphicUtilities::InitializeSprite(sf::Sprite & spriteToInitialize, sf::Texture & textureToInitialize, const std::string imageAddress, sf::IntRect IntRect)
+{
+	if (textureToInitialize.loadFromFile(imageAddress, IntRect))
+		spriteToInitialize.setTexture(textureToInitialize);
+	else
+		std::cerr << std::endl << imageAddress << " wasn't loaded correctly, please check address. ";}

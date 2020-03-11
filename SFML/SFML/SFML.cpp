@@ -1,38 +1,62 @@
 #include <SFML/Graphics.hpp>
+#include "SaveSystem.h"
 #include "Actor.h"
 #include "MapCreationTool.h"
 #include <iostream>
+#include "Player.h"
+#include "MapCreationTool.h"
+#include <fstream>
 
-Actor actor1("Art/Items/CoinBlock.png");
-Actor actor2("Art/Items/CoinBlock.png");
+Player player("Art/Character/Mario1.png");
+
 
 int main()
 {
-	actor1.getSprite().setColor(sf::Color::Green);
-	actor1.getSprite().setPosition(64*7,64*5);
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Mario Bros");
-	MapCreationTool mapCreationTool(window);
-	Map mapOnCT;
+	Map map;
+	MapCreationTool *mapCreationTool = nullptr;
+	player.getSprite().setPosition(500,0);
 
+	std::cout << "\nWant to open map Creation Tool (1 = YES | 2 = NO)?";
+	std::cout << "\nAnswer: ";
+	std::string answer;
+	std::cin >> answer;
+	if (answer == "1")
+	 mapCreationTool = new MapCreationTool(window, map);
 	
+
+	std::ifstream ifs("SaveFile.txt");
+	
+	//Check if any file exists, if it does load the map
+	if (ifs.is_open())
+	{
+		SaveSystem SS;
+		SS.LoadMap(map);
+	}
+	
+	//Set the window framerate to 60
 	window.setFramerateLimit(60);
 
+	//While game is running
 	while (window.isOpen())
 	{
-		mapCreationTool.HandleInput(window, mapOnCT);
+		//Map creation Tool input
+		if(mapCreationTool != nullptr)
+		mapCreationTool->MapCreationInput(window);
 
+		//Player functionalities
+		player.PlayerMovement();
+		player.CheckPlayerCollisions(map.getAllActorsOnMap());
+
+		//Draw
 		window.clear(sf::Color::White);
-		mapCreationTool.ShowMapCreationTool(window);
-		mapOnCT.DrawAllActors(window);
-		window.draw(actor1.getSprite());
 
-		for (auto box : mapOnCT.getAllActorsOnMap())
-		{
-			if (box->CheckActorCollision(actor1))
-			{
-				std::cout << "\nColliding";
-			}
-		}
+		if(mapCreationTool)
+		mapCreationTool->ShowMapCreationTool(window);
+
+		map.DrawAllActors(window);
+		player.DrawPlayer(window);
+		window.draw(player.getSprite());
 		window.display();
 	}
 

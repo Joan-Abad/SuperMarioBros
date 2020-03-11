@@ -1,2 +1,4 @@
 ﻿  SFML.cpp
-  SFML.vcxproj -> C:\Users\Joan Abad\Documents\Joan Abad\SFML\Super_Mario_Bros\SFML\Debug\SFML.exe
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.h(13): warning C4091: 'extern ': ignored on left of 'EntityType' when no variable is declared
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\actor.h(7): warning C4091: 'extern ': ignored on left of 'EntityType' when no variable is declared
+  SFML.vcxproj -> C:\Users\Joan Abad\Documents\Joan Abad\SFML\SuperMarioBros\SFML\Debug\SFML.exe

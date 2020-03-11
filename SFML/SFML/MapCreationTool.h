@@ -3,23 +3,60 @@
 #include "Actor.h"
 #include <vector>
 #include "Map.h"
+#include "SaveSystem.h"
+
+extern enum EntityType
+{
+	e_CoinBlock,
+	e_Brick,
+	NONE
+};
+
+enum E_ToolMode
+{
+	Painting,
+	Removing, 
+	e_NONE
+};
 
 struct Entity
 {
 	sf::Sprite spr_Entity;
 	sf::Texture tex_Entity;
+	EntityType E_EntityType;
+	std::string imageAddress;
 };
+
+struct Tool
+{
+	sf::Sprite spr_Entity;
+	sf::Texture tex_Entity;
+	E_ToolMode toolType;
+	std::string imageAddress;
+};
+
+class Actor;
+class Map;
 
 class MapCreationTool
 {
 
 public: 
-	MapCreationTool(sf::RenderWindow & window);
+	MapCreationTool(sf::RenderWindow & window, Map & map);
+	Map * mainMap;
 
 private: 
 
 	//Mouse
 	sf::RectangleShape mouseDetection; 
+	
+	int numberOfEntitiessToolBox;
+
+	//Initializes new actor available in sandbox toolbox
+	void InitializeNewActor(Entity &entity, const std::string imageAddress, sf::Vector2f marginPosition, EntityType e_entType);
+	void InitializeNewTool(Tool &newTool, const std::string imageAddress, sf::Vector2f marginPosition, E_ToolMode toolMode);
+
+	void DeleteActor(Entity &entity);
 
 //Tool Box
 	//Graphics
@@ -30,20 +67,36 @@ private:
 	sf::Text text_Actors;
 	sf::Font font_Actors;
 	
-	//Actors available to Spawn
+	//Entities in toolbox
 	Entity CoinBlock; 
+	Entity Brick;
 
+	//Tools
+	Tool paintTool;
+	Tool removeTool;
+	Tool *ActiveTool = nullptr;
 
-	//All entities must be stores here. 
+	//Markers
+	sf::RectangleShape RectangleMarker;
+	sf::RectangleShape EntityMarker;
+
+	//Actors
+	Actor * actorSpawned = nullptr;
+	bool spawnActor = true;
+
+	// Vectors 
 	std::vector<Entity> AllEntities;
-	std::vector<Entity*> EntitiesInWorld;
+	std::vector<Tool> AllTools;
 
 	bool LeftMouseButtonPressed = false; 
 
-	Actor * actorSpawned = nullptr; 
-
+	//All the input tools can make
+	void ToolsInput(sf::RenderWindow &window);
 public: 
+	//Draw all the map creaction tool
 	void ShowMapCreationTool(sf::RenderWindow &window);
-	void HandleInput(sf::RenderWindow &window, Map & map);
+	
+	//Map creation input
+	void MapCreationInput(sf::RenderWindow &window);
 };
 

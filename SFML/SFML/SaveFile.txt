@@ -1,0 +1,10 @@
+CoinBlock,-1792,704;
+CoinBlock,-1856,704;
+Brick,192,1088;
+CoinBlock,960,1088;
+Brick,704,1088;
+Brick,768,1152;
+Brick,832,1216;
+Brick,896,1216;
+Brick,960,1152;
+Brick,896,1088;

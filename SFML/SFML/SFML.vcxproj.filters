@@ -31,13 +31,16 @@
     <Filter Include="Archivos de origen\Utility">
       <UniqueIdentifier>{fc678cbc-fe8b-4680-8ccd-e341b94edc9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Saving">
+      <UniqueIdentifier>{727e765c-79d1-4f70-b4df-0d978fe78d31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Saving">
+      <UniqueIdentifier>{3fb024f5-cb0f-445b-8ee4-097a26a9349b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SFML.cpp">
       <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="MapCreationTool.cpp">
-      <Filter>Archivos de origen\LevelCreation</Filter>
     </ClCompile>
     <ClCompile Include="DebugUtilities.cpp">
       <Filter>Archivos de origen\Utility</Filter>
@@ -51,16 +54,25 @@
     <ClCompile Include="FontUtilities.cpp">
       <Filter>Archivos de origen\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="MapCreationTool.cpp">
+      <Filter>Archivos de origen\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Archivos de origen\Actors</Filter>
+    </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\LevelCreation</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveSystem.cpp">
+      <Filter>Archivos de origen\Saving</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Archivos de origen\Actors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MapCreationTool.h">
       <Filter>Archivos de encabezado\LevelCreation</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GraphicUtilities.h">
       <Filter>Archivos de encabezado\Utility</Filter>
@@ -71,8 +83,20 @@
     <ClInclude Include="FontUtilities.h">
       <Filter>Archivos de encabezado\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Archivos de encabezado\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Archivos de encabezado\Actors</Filter>
+    </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\LevelCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Archivos de encabezado\Saving</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Archivos de encabezado\Actors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

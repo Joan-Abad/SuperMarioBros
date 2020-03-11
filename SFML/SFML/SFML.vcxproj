@@ -158,20 +158,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="FontUtilities.cpp" />
     <ClCompile Include="GraphicUtilities.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapCreationTool.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="SFML.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="DebugUtilities.h" />
     <ClInclude Include="FontUtilities.h" />
     <ClInclude Include="GraphicUtilities.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapCreationTool.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="SaveSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

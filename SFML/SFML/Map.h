@@ -2,6 +2,8 @@
 #include <vector>
 #include "Actor.h"
 
+class Actor; 
+
 class Map
 {
 public: 
