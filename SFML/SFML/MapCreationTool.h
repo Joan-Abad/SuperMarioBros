@@ -47,7 +47,7 @@ public:
 
 private: 
 
-	//Mouse
+	//Mouse (Red Square)
 	sf::RectangleShape mouseDetection; 
 	
 	int numberOfEntitiessToolBox;
@@ -58,6 +58,15 @@ private:
 
 	void DeleteActor(Entity &entity);
 
+	bool HoldingLeftButton = false; 
+	bool moveCamera = false;
+
+	float InitialCameraSpeed;
+	float cameraMovementSpeed; 
+	float movementAdded;
+	float ajustarMouseMarker;
+
+	float XAXA;
 //Tool Box
 	//Graphics
 	sf::RectangleShape toolBox;
@@ -70,6 +79,8 @@ private:
 	//Entities in toolbox
 	Entity CoinBlock; 
 	Entity Brick;
+	Entity * CoinBlockP = nullptr;
+	Entity * BrickBlockP = nullptr;
 
 	//Tools
 	Tool paintTool;
@@ -79,6 +90,7 @@ private:
 	//Markers
 	sf::RectangleShape RectangleMarker;
 	sf::RectangleShape EntityMarker;
+	sf::RectangleShape mouseMarker;
 
 	//Actors
 	Actor * actorSpawned = nullptr;
@@ -87,6 +99,7 @@ private:
 	// Vectors 
 	std::vector<Entity> AllEntities;
 	std::vector<Tool> AllTools;
+	std::vector<Entity*> AllEntitieP;
 
 	bool LeftMouseButtonPressed = false; 
 
@@ -97,6 +110,13 @@ public:
 	void ShowMapCreationTool(sf::RenderWindow &window);
 	
 	//Map creation input
-	void MapCreationInput(sf::RenderWindow &window);
+	void MapCreationInput(sf::RenderWindow &window, sf::View &view);
+
+	void updateMouseMaker(sf::Vector2i mousePosition);
+
+	void moveToolBox(float speed);
+
+	Entity &getCoinblock() { return CoinBlock; };
+	Entity &getBrickBlock() { return Brick; };
 };
 

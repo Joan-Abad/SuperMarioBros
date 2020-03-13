@@ -14,15 +14,15 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Mario Bros");
 	Map map;
-	MapCreationTool *mapCreationTool = nullptr;
+	MapCreationTool *mapCreationTool = new MapCreationTool(window, map);
 	player.getSprite().setPosition(500,0);
 
-	std::cout << "\nWant to open map Creation Tool (1 = YES | 2 = NO)?";
+	/*std::cout << "\nWant to open map Creation Tool (1 = YES | 2 = NO)?";
 	std::cout << "\nAnswer: ";
 	std::string answer;
 	std::cin >> answer;
 	if (answer == "1")
-	 mapCreationTool = new MapCreationTool(window, map);
+	 mapCreationTool = new MapCreationTool(window, map);*/ 
 	
 
 	std::ifstream ifs("SaveFile.txt");
@@ -33,31 +33,41 @@ int main()
 		SaveSystem SS;
 		SS.LoadMap(map);
 	}
-	
+	sf::View view(sf::Vector2f(window.getSize().x/2, window.getSize().y / 2), sf::Vector2f(window.getSize()));
+
 	//Set the window framerate to 60
 	window.setFramerateLimit(60);
 
-	//While game is running
-	while (window.isOpen())
+	//window.setView(view);
+
+	if (mapCreationTool)
 	{
-		//Map creation Tool input
-		if(mapCreationTool != nullptr)
-		mapCreationTool->MapCreationInput(window);
 
-		//Player functionalities
-		player.PlayerMovement();
-		player.CheckPlayerCollisions(map.getAllActorsOnMap());
+		//While game is running
+		while (window.isOpen())
+		{
+			//Map creation Tool input
+			mapCreationTool->MapCreationInput(window, view);
 
-		//Draw
-		window.clear(sf::Color::White);
+			//Player functionalities
+			player.PlayerMovement();
+			player.CheckPlayerCollisions(map.getAllActorsOnMap());
 
-		if(mapCreationTool)
-		mapCreationTool->ShowMapCreationTool(window);
+			window.setView(view);
 
-		map.DrawAllActors(window);
-		player.DrawPlayer(window);
-		window.draw(player.getSprite());
-		window.display();
+			//Draw
+			window.clear(sf::Color(89, 150, 255));
+
+			map.DrawAllActors(window);
+
+			if (mapCreationTool)
+				mapCreationTool->ShowMapCreationTool(window);
+
+			player.DrawPlayer(window);
+			window.draw(player.getSprite());
+			window.display();
+			
+		}
 	}
 
 	return 0;

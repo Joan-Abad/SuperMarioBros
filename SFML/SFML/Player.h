@@ -9,7 +9,7 @@ public:
 private: 
 
 	//Gravity
-	int gravity = 0;
+	int gravity = 2;
 	const int initialGravity;
 	bool canMoveRight = true;
 	bool canMoveLeft = true;

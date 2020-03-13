@@ -54,9 +54,6 @@
     <ClCompile Include="FontUtilities.cpp">
       <Filter>Archivos de origen\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="MapCreationTool.cpp">
-      <Filter>Archivos de origen\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>Archivos de origen\Actors</Filter>
     </ClCompile>
@@ -68,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de origen\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCreationTool.cpp">
+      <Filter>Archivos de origen\LevelCreation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
