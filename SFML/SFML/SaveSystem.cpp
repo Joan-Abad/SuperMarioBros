@@ -23,6 +23,8 @@ void SaveSystem::SaveActor(Actor &actorSpawned,  int openFileMode)
 		SaveFile << actorSpawned.getSprite().getPosition().x << "," << actorSpawned.getSprite().getPosition().y << ';' << std::endl;
 	}
 
+	SaveFile.close();
+
 }
 
 void SaveSystem::SaveActorsTruncateFiles(std::vector<Actor*> actorVector)

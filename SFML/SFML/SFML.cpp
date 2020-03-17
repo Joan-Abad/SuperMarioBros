@@ -46,22 +46,21 @@ int main()
 		//While game is running
 		while (window.isOpen())
 		{
-			//Map creation Tool input
-			mapCreationTool->MapCreationInput(window, view);
-
 			//Player functionalities
 			player.PlayerMovement();
 			player.CheckPlayerCollisions(map.getAllActorsOnMap());
 
-			window.setView(view);
+
+			mapCreationTool->HandleInputMapCreation(window,view);
 
 			//Draw
 			window.clear(sf::Color(89, 150, 255));
-
 			map.DrawAllActors(window);
 
 			if (mapCreationTool)
 				mapCreationTool->ShowMapCreationTool(window);
+
+			window.setView(view);
 
 			player.DrawPlayer(window);
 			window.draw(player.getSprite());

@@ -39,13 +39,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SFML.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="DebugUtilities.cpp">
-      <Filter>Archivos de origen\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicUtilities.cpp">
       <Filter>Archivos de origen\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
@@ -68,6 +62,12 @@
     </ClCompile>
     <ClCompile Include="MapCreationTool.cpp">
       <Filter>Archivos de origen\LevelCreation</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicUtilities.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="SFML.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

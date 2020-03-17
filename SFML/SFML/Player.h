@@ -14,11 +14,19 @@ private:
 	bool canMoveRight = true;
 	bool canMoveLeft = true;
 
+	bool movingLeft = false;
+	bool movingRight = false;
+
 	//Collisions
 	sf::RectangleShape collision_Right;
 	sf::RectangleShape collision_Left;
 	sf::RectangleShape collision_Up;
 	sf::RectangleShape collision_Down;
+
+	//Clock
+
+	sf::Clock clockRun;
+	sf::Time timerRun;
 
 	void adjustCollisions();
 

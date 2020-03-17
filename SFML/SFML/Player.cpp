@@ -53,10 +53,12 @@ void Player::PlayerMovement()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
+		movingLeft = true;
 		spr_actor.move(movementSpeed * -1, 0);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
+		movingLeft = true;
 		spr_actor.move(movementSpeed, 0);
 	}
 
