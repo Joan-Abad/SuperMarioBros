@@ -9,6 +9,8 @@ extern enum EntityType
 {
 	e_CoinBlock,
 	e_Brick,
+	e_Floor,
+	e_Pipe,
 	NONE
 };
 
@@ -80,6 +82,8 @@ private:
 	//Entities in toolbox
 	Entity * CoinBlockP = nullptr;
 	Entity * BrickBlockP = nullptr;
+	Entity * FloorBlockP = nullptr;
+	Entity * PipeBlockP = nullptr;
 
 	//Tools
 	Tool * PaintTool;

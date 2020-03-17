@@ -39,12 +39,17 @@ MapCreationTool::MapCreationTool(sf::RenderWindow & window, Map & map)
 	BrickBlockP = new Entity;
 	InitializeNewActor(BrickBlockP,"Art/Items/Brick.png", sf::Vector2f(margin_X * 2,margin_y),e_Brick);
 
-	
-	
+	FloorBlockP = new Entity;
+	InitializeNewActor(FloorBlockP, "Art/Items/Floor.png", sf::Vector2f(0, margin_y * 3), e_Floor);
+
+	PipeBlockP = new Entity;
+	InitializeNewActor(PipeBlockP, "Art/Items/Pipe64.png", sf::Vector2f(margin_X * 2, margin_y * 3), e_Pipe);
+
 	//Tools
 	//Painting
 	PaintTool = new Tool;
 	InitializeNewTool(PaintTool, "Art/Items/Paint.png", sf::Vector2f(margin_X, toolBoxSize.y - margin_y * 1.2f), Painting);
+
 	removeTool = new Tool;
 	InitializeNewTool(removeTool, "Art/Items/Eraser.png", sf::Vector2f(margin_X * 2.5f, toolBoxSize.y - margin_y * 1.2f), Removing);
 
@@ -112,6 +117,7 @@ void MapCreationTool::CheckMouseInteraction(sf::RenderWindow &window, sf::View &
 		EntityMarker.setFillColor(sf::Color::Transparent);
 		ToolMarker.setFillColor(sf::Color(255, 255, 0, 80));
 		ToolMarker.setPosition(removeTool->spr_Entity.getPosition());
+		mouseMarker.setSize(sf::Vector2f(64, 64));
 	}
 
 	if (ActiveTool)
@@ -129,11 +135,25 @@ void MapCreationTool::CheckMouseInteraction(sf::RenderWindow &window, sf::View &
 					case e_CoinBlock:
 						std::cout << "\nCoin Block";
 						actorSpawned = new Actor("Art/Items/CoinBlock.png", e_CoinBlock);
+						mouseMarker.setSize(sf::Vector2f(64, 64));
 						break;
 
 					case e_Brick:
 						std::cout << "\nBrick Block";
 						actorSpawned = new Actor("Art/Items/Brick.png", e_Brick);
+						mouseMarker.setSize(sf::Vector2f(64, 64));
+						break;
+
+					case e_Floor:
+						std::cout << "\nFloor Block";
+						actorSpawned = new Actor("Art/Items/Floor.png", e_Floor);
+						mouseMarker.setSize(sf::Vector2f(64, 64));
+						break;
+						
+					case e_Pipe:
+						std::cout << "\nPipe Block";
+						actorSpawned = new Actor("Art/Items/Pipe128.png", e_Pipe);
+						mouseMarker.setSize(sf::Vector2f(64*2, 64*2));
 						break;
 					}
 					spawnActor = true;

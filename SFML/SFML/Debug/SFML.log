@@ -1,6 +1,6 @@
 ﻿  MapCreationTool.cpp
 c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\actor.h(7): warning C4091: 'extern ': ignored on left of 'EntityType' when no variable is declared
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.h(13): warning C4091: 'extern ': ignored on left of 'EntityType' when no variable is declared
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.h(15): warning C4091: 'extern ': ignored on left of 'EntityType' when no variable is declared
 c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(26): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
@@ -10,23 +10,23 @@ c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreation
           [
               T=float
           ]
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(155): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(175): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(156): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(176): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(203): warning C4018: '<': signed/unsigned mismatch
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(234): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(223): warning C4018: '<': signed/unsigned mismatch
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(254): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(235): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+c:\users\joan abad\documents\joan abad\sfml\supermariobros\sfml\sfml\mapcreationtool.cpp(255): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

@@ -15,13 +15,21 @@ void SaveSystem::SaveActor(Actor &actorSpawned,  int openFileMode)
 	if (actorSpawned.actorType == e_CoinBlock)
 	{
 		SaveFile << "CoinBlock,";
-		SaveFile << actorSpawned.getSprite().getPosition().x << "," << actorSpawned.getSprite().getPosition().y << ';' <<std::endl;
 	}
 	else if (actorSpawned.actorType == e_Brick)
 	{
 		SaveFile << "Brick,";
-		SaveFile << actorSpawned.getSprite().getPosition().x << "," << actorSpawned.getSprite().getPosition().y << ';' << std::endl;
 	}
+	else if (actorSpawned.actorType == e_Floor)
+	{
+		SaveFile << "Floor,";
+	}
+	else if (actorSpawned.actorType == e_Pipe)
+	{
+		SaveFile << "Pipe,";
+	}
+
+	SaveFile << actorSpawned.getSprite().getPosition().x << "," << actorSpawned.getSprite().getPosition().y << ';' << std::endl;
 
 	SaveFile.close();
 
@@ -38,13 +46,21 @@ void SaveSystem::SaveActorsTruncateFiles(std::vector<Actor*> actorVector)
 		if (actor->actorType == e_CoinBlock)
 		{
 			SaveFile << "CoinBlock,";
-			SaveFile << actor->getSprite().getPosition().x << "," << actor->getSprite().getPosition().y << ';' << std::endl;
 		}
 		else if (actor->actorType == e_Brick)
 		{
 			SaveFile << "Brick,";
-			SaveFile << actor->getSprite().getPosition().x << "," << actor->getSprite().getPosition().y << ';' << std::endl;
 		}
+		else if (actor->actorType == e_Floor)
+		{
+			SaveFile << "Floor,";
+		}
+		else if (actor->actorType == e_Pipe)
+		{
+			SaveFile << "Pipe,";
+		}
+		SaveFile << actor->getSprite().getPosition().x << "," << actor->getSprite().getPosition().y << ';' << std::endl;
+
 	}
 
 }
@@ -109,7 +125,7 @@ void SaveSystem::LoadMap(Map &map)
 		}
 		else if (arrayHandler == 2)
 		{
-			PositionSaveFile.y = std::stof(wordsFound[i]);
+			PositionSaveFile.y = std::stof(wordsFound[i]); 
 			if (s_ItemType == "CoinBlock")
 			{
 				imageAddress = "Art/Items/CoinBlock.png";
@@ -119,6 +135,16 @@ void SaveSystem::LoadMap(Map &map)
 			{
 				imageAddress = "Art/Items/Brick.png";
 				enty = e_Brick;
+			}
+			else if (s_ItemType == "Floor")
+			{
+				imageAddress = "Art/Items/Floor.png";
+				enty = e_Floor;
+			}
+			else if (s_ItemType == "Pipe")
+			{
+				imageAddress = "Art/Items/Pipe128.png";
+				enty = e_Pipe;
 			}
 			Actor *actorSpawned = new Actor(imageAddress, enty);
 			actorSpawned->getSprite().setPosition(PositionSaveFile);
